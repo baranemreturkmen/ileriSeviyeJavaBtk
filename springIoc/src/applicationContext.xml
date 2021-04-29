@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	
+<!-- 	values.property dosyasının yolunu belirtiyorum -->
+	<context:property-placeholder location="classpath:values.properties"/>
+	
+<!-- 	Hangi class'ı veri tabanı işlemlerinde kullanacaksam onu class parametresinde yazıyorum. -->
+<!-- 	id parametresi bu bean'e ulaşabilmem için gerekli. Bu bean'e ulaşma yeri bu dosyada olabilir  -->
+<!-- 	Main dosyası da olabilir. Farklı bir class'da olabilir vs. Ama ya bu dosyadır yada Maindir genelde. -->
+	<bean id="database" class="springIoc.OracleCustomerDal">
+	
+<!-- 	connectionString'in bulunduğu classlarda connectionString'e ulaşmam için gereken yer -->
+<!-- 	ozelligimin ismini name ile veriyorum value'daki parametre value.properties dosyasındaki degiskenimi iceriyor -->
+<!-- 	values.properties'de ozelligimi degistirecegim zaman otomatik degismesini istiyorum bu yuzden value'da degisken ismi var -->
+	<property name="connectionString" value="${database.connectionString}"></property>
+	
+	</bean>
+	
+<!-- 	service id'si ile CustomerManager class'ına ulasacagımı soyluyorum. -->
+	<bean id="service" class="springIoc.CustomerManager">
+	
+<!-- 	constructor injection -->
+	<constructor-arg ref="database"></constructor-arg>
+
+<!-- 	setter injection -->
+<!-- 		<property name="customerDal" ref="database"></property> -->
+	</bean>
+	
+</beans>
+
+
+
+
+
