@@ -132,7 +132,7 @@ public class Main {
 			//City nesnesi değil bir String oluyor tek kolonla uğraşıyorum o kolonun değerleri de String
 			//Dikkat yani artık tüm tabloyu çekmiyorsam eğer tek bir kolon ile uğraşıyorsam o kolona
 			//ait değerlerin türü ile bir liste oluşturmalıyım . Burada ne kadar countryCode çeşidi varsa
-			//alıyorum yani TUR bir tane FRA bir tane USA bir tane. Zaten gorup bu kullanmamım da amacı bu
+			//alıyorum yani TUR bir tane FRA bir tane USA bir tane. Zaten group by kullanmamım da amacı bu
 			//countryCodeları grupladım aslında .
 					
 			for (City city : cities) {
