@@ -73,7 +73,7 @@ public class Main {
 		//Session yolladığımda hata çıkarsa diye hata yakalamak için kod yazmam lazım.
 				
 		try {
-			//addAnnotatedClass() metodu ile transaction'a başladığımı söylüyorum.
+			//beginTransaction() metodu ile transaction'a başladığımı söylüyorum.
 		 			
 			session.beginTransaction();
 					
